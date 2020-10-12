@@ -6,6 +6,10 @@
 
 之后需要个前端，套一下 https://rime.im/
 
+#
+
+- [ ] 直接显示所有结果-> 用 js 做搜索功能。<https://github.com/krisk/fuse>
+
 参考项目： 
 
 ⭐ <https://atom.io/packages>
