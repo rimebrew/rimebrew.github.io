@@ -2,3 +2,14 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+.bundle
+
+# ignore some local dirs
+bin/**
+vendor/**
+Gemfile.lcok
+Gemfile
+
+# prject specific
+
+script/**

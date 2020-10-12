@@ -1,0 +1,8 @@
+# Site settings
+title: "R I M E  药房"
+description: "这是在线查看所有收录包信息的地方，在定义文件设计完成之前不会有集中开发。之后需要前端做美工。"
+url: "https://rimebrew.github.io"
+author: "slbtty"
+
+
+theme: minima
