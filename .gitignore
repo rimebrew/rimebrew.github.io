@@ -9,7 +9,17 @@ bin/**
 vendor/**
 Gemfile.lcok
 Gemfile
+.bundle/**
 
 # prject specific
 
 script/**
+_data/bundle
+_data/bundle
+.idea/misc.xml
+.idea/modules.xml
+.idea/rimebrew.github.io.iml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/.gitignore

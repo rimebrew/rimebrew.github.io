@@ -12,14 +12,29 @@ layout: default
     </thead>
     <tbody>
 
-    {% comment %}
-    {% This is a Jekyll specific hack %}
-    {% endcomment %} 
+<!--
+   The lines below are creepy hack, easpcially the suppid assign, TO understand
+     <https://jekyllrb.com/docs/datafiles/>
+     <https://jekyllrb.com/tutorials/navigation/#scenario-3-two-level-navigation-list->
 
-    {% for x in site.data.bundles %}
-    {% assign bundle = x[1] %}
+     Inside Jekyll, a file and a data can be accessed via x.y.z
+     However, for a dir, the direct access become objects that hold info about each files.
+
+     [0] -> filename, [1] -> THE FIST PART OF THE FILE (before `---` in YAML's synatx).
+
+     Then, AMAZINGLY, the second part is Inaccessible ???? There is no www[2] Since 10 years ago.
+
+     They are super lazy, and only process first part of the file as a normal post page for a data file???
+
+     You may test by directly out put www[1] and www[0].
+
+     <https://github.com/jekyll/jekyll/issues/246>
+-->
+
+    {% for www in site.data.bundle %}
+    {% assign bundle = www[1] %}
       <tr>
-        <td>{{bundle.repository.id}}</td>
+        <td>{{bundle.id}}</td>
           <td>{{bundle.repository.display_name}}</td>
         <td>
             {{bundle.repository.url}}
