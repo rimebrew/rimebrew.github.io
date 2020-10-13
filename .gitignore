@@ -8,7 +8,6 @@ _site/
 bin/**
 vendor/**
 Gemfile.lcok
-Gemfile
 .bundle/**
 
 # prject specific

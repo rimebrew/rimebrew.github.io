@@ -35,9 +35,9 @@ layout: default
     {% assign bundle = www[1] %}
       <tr>
         <td>{{bundle.id}}</td>
-          <td>{{bundle.repository.display_name}}</td>
+          <td>{{bundle.display_name}}</td>
         <td>
-            {{bundle.repository.url}}
+            {{bundle.url}}
         </td>
         </tr>
     {% endfor %}
