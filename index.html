@@ -1,8 +1,6 @@
 ---
 layout: default
 ---
-
-
 <script>
   function toggle(id) {
   var x = document.getElementById(id);
@@ -13,38 +11,51 @@ layout: default
   }
 } 
 </script>
-
-<!-- good ref: <https://gist.github.com/JJediny/a466eed62cee30ad45e2> -->
+<h1>R I M E B R E W 药房</h1>
+<p>Project home: <a href="https://github.com/rimebrew">https://github.com/rimebrew</a></p>
+<p>这里显示的内容都是从 <a href="https://github.com/rimebrew/rime_bundle">rime_bundle</a> 里面自动生成的。安装工具暂距离完成还需要一段时间，之后这里可能需要一个美工修一下 :)</p>
 
 <div class="bundle_table">
-
   <div class="table_row">
     <span class="down_arrow"></span>
-    <span class="id"># ID</span>
     <span class="display_name"># Name</span>
+    <span class="id"># ID</span>
     <span class="url"># Homepage</span>
   </div>
 
-  {% for www in site.data.bundle %}
-  {% assign bundle = www[1] %}
-  <div class="table_row"  onclick="toggle('{{bundle.id}}')">
-    <span class="down_arrow">▼</span>
-    <span class="id">{{bundle.id}}</span>
-    <span class="display_name">{{bundle.display_name}}</span>
-    <span class="url"><a href="{{bundle.url}}">{{bundle.url}}</a></span>
-  </div>
+{% for www in site.data.bundle %}
+{% assign bundle = www[1] %}
+<div class="table_row"  onclick="toggle('{{bundle.id}}')">
+  <span class="down_arrow">▼</span>
+  <span class="display_name">{{bundle.display_name}}</span>
+  <span class="id">{{bundle.id}}</span>
+  <span class="url"><a href="{{bundle.url}}">{{bundle.url}}</a></span>
+</div>
 
-  {%for schema in bundle.provides%}
+<div class="sub_table_wrapper" id="{{bundle.id}}">
+    {%for schema in bundle.provides%}
+ {% comment %} 
+ <!-- read below
+  https://jekyllrb.com/docs/liquid/filters/
+  https://shopify.github.io/liquid/
+  https://gist.github.com/JJediny/a466eed62cee30ad45e2
 
-  {% assign schema_name = schema | first %}
-  <div class="sub_table_row" id="{{bundle.id}}">
-    
-      <span>{{schema_name}} {{schema.display_name}} | {{schema.description}}</span>
+  Below is a trick.
+  To understand it, you may want to try {{variable | inspect}}.
+-->
+ {% endcomment %}
+    {% assign schema_id = schema | first %}
+    {% assign schema_attributes = schema | last%}
+    <div class="sub_table_row">
+      <span class="name"> > {{schema_attributes.display_name}}</span>
+      <span class="id">{{schema_id}}</span>
+      <span class="description">{{schema_attributes.description}}</span>
+    </div>
     {%endfor%}
-  </div>
 
-  {% endfor %}
-
+</div>
+{% endfor %}
+</div>
 
   <!--
    The lines above are creepy hack, easpcially the suppid assign, TO understand
@@ -64,5 +75,3 @@ layout: default
 
      <https://github.com/jekyll/jekyll/issues/246>
 -->
-
-</div>
