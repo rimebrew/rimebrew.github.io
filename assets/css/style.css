@@ -1,7 +1,11 @@
+/*Global*/
 body{
     background: #fcfffd;
     font-size: 16px;
+    text-align: left;
 }
+
+/*-------*/
 
 .bundle_table{
     /*border: 1px black solid;*/
@@ -16,22 +20,25 @@ body{
 .table_row .down_arrow{
     width: 30px;
     text-align: center;
-    display:inline-block
+    display:inline-block;
 }
 
 .table_row .id{
     width: 150px;
-    display:inline-block
+    display:inline-block;
+    vertical-align: top;
 }
 
 .table_row .display_name{
     width: 200px;
-    display:inline-block
+    display:inline-block;
+    vertical-align: top;
+
 }
 
 .table_row .url{
     width: auto;
-    display:inline-block
+    display:inline-block;
 }
 
 .sub_table_wrapper{
@@ -40,10 +47,11 @@ body{
 }
 
 .sub_table_row .id{
-    width: 150px;
-    display: inline-block;
+    width: auto;
+    display: inline;
 }
 .sub_table_row .name{
+    vertical-align: top;
     width: 200px;
     display: inline-block;
 }
@@ -52,4 +60,3 @@ body{
     width: auto;
     display: inline-block;
 }
-

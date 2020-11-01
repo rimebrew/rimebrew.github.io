@@ -47,9 +47,9 @@ layout: default
     {% assign schema_id = schema | first %}
     {% assign schema_attributes = schema | last%}
     <div class="sub_table_row">
-      <span class="name"> > {{schema_attributes.display_name}}</span>
-      <span class="id">{{schema_id}}</span>
-      <span class="description">{{schema_attributes.description}}</span>
+      <span class="name"> ○ {{schema_attributes.display_name}}</span>
+      <span class="id"> {{schema_id}}</span>
+      <!-- <span class="description">{{schema_attributes.description}}</span> -->
     </div>
     {%endfor%}
 
