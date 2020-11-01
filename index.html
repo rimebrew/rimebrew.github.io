@@ -1,27 +1,45 @@
 ---
 layout: default
 ---
+
+
+<script>
+  function toggle(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+</script>
+
+<!-- good ref: <https://gist.github.com/JJediny/a466eed62cee30ad45e2> -->
+
 <div class="bundle_table">
 
   <div class="table_row">
-    <span>▼</span>
-    <span># ID</span>
-    <span># Name</span>
-    <span># Url</span>
+    <span class="down_arrow"></span>
+    <span class="id"># ID</span>
+    <span class="display_name"># Name</span>
+    <span class="url"># Homepage</span>
   </div>
 
   {% for www in site.data.bundle %}
   {% assign bundle = www[1] %}
-  <div class="table_row">
-
-    <span>{{bundle.id}}</span>
-    <span>{{bundle.display_name}}</span>
-    <span>{{bundle.url}}</span>
+  <div class="table_row"  onclick="toggle('{{bundle.id}}')">
+    <span class="down_arrow">▼</span>
+    <span class="id">{{bundle.id}}</span>
+    <span class="display_name">{{bundle.display_name}}</span>
+    <span class="url"><a href="{{bundle.url}}">{{bundle.url}}</a></span>
   </div>
 
-  <div class="sub_table_row">
-    {%for schema in bundle.provides%}
-      <p>{{schema.display_name}}</p>
+  {%for schema in bundle.provides%}
+
+  {% assign schema_name = schema | first %}
+  <div class="sub_table_row" id="{{bundle.id}}">
+    
+      <span>{{schema_name}} {{schema.display_name}} | {{schema.description}}</span>
     {%endfor%}
   </div>
 
@@ -46,4 +64,5 @@ layout: default
 
      <https://github.com/jekyll/jekyll/issues/246>
 -->
+
 </div>
