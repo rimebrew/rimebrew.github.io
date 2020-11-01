@@ -1,19 +1,35 @@
 ---
 layout: default
 ---
+<div class="bundle_table">
 
-<table>
-    <thead>
-      <tr>
-          <th># ID</th>
-        <th># Name</th>
-        <th># Url</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="table_row">
+    <span>▼</span>
+    <span># ID</span>
+    <span># Name</span>
+    <span># Url</span>
+  </div>
 
-<!--
-   The lines below are creepy hack, easpcially the suppid assign, TO understand
+  {% for www in site.data.bundle %}
+  {% assign bundle = www[1] %}
+  <div class="table_row">
+
+    <span>{{bundle.id}}</span>
+    <span>{{bundle.display_name}}</span>
+    <span>{{bundle.url}}</span>
+  </div>
+
+  <div class="sub_table_row">
+    {%for schema in bundle.provides%}
+      <p>{{schema.display_name}}</p>
+    {%endfor%}
+  </div>
+
+  {% endfor %}
+
+
+  <!--
+   The lines above are creepy hack, easpcially the suppid assign, TO understand
      <https://jekyllrb.com/docs/datafiles/>
      <https://jekyllrb.com/tutorials/navigation/#scenario-3-two-level-navigation-list->
 
@@ -30,17 +46,4 @@ layout: default
 
      <https://github.com/jekyll/jekyll/issues/246>
 -->
-
-    {% for www in site.data.bundle %}
-    {% assign bundle = www[1] %}
-      <tr>
-        <td>{{bundle.id}}</td>
-          <td>{{bundle.display_name}}</td>
-        <td>
-            {{bundle.url}}
-        </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-  
+</div>
