@@ -6,6 +6,8 @@
 
 **How to setup a auto update the submodules??? Webhooks? Github Actions???**
 
+https://crates.io/
+
 https://sinolect.netlify.app/schema
 
 之后需要个前端，套一下 https://rime.im/
